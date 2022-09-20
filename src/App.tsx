@@ -17,9 +17,13 @@ const App: React.FC=()=>{
     setTodoList(prevTodos=>[...prevTodos,todoData])
   }
 
+  const onTodoDeleteHandler=(todoId:string)=>{
+    setTodoList(prevTodo=>prevTodo.filter(item=>item.id !==todoId))
+  }
+
   return (
     <>
-    <TodoList items={Todo}/>
+    <TodoList items={Todo} onDeleteHandler={onTodoDeleteHandler}/>
     <NewTodo getNewTodo={newTodoList}/>
     </>
   )
