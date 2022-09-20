@@ -1,23 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
 import NewTodo from './components/NewTodo';
 import TodoList from './components/TodoList';
-
-const TODO_DATA=[
-  {id:'23',text:`starting text is here`},
-  {id:'25',text:`something about next is so good`},
-  {id:'28',text:`Might learn nest.js next`}
-]
+import { Todo } from './helper/todo.model';
 
 
 const App: React.FC=()=>{
+
+  const [Todo, setTodoList] = useState<Todo[]>([])
+
   const newTodoList=(data:string)=>{
     console.log(data)
+    const todoData={
+      id:Math.random().toString(),
+      text:data
+    }
+    setTodoList(prevTodos=>[...prevTodos,todoData])
   }
 
   return (
     <>
-    <TodoList items={TODO_DATA}/>
-      <NewTodo getNewTodo={newTodoList}/>
+    <TodoList items={Todo}/>
+    <NewTodo getNewTodo={newTodoList}/>
     </>
   )
 }
