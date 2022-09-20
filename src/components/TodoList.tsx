@@ -1,18 +1,17 @@
-import React from 'react'
+import React from "react";
 
-interface TodoListProps{
-    items:{id:string,text:string}[];
+interface TodoListProps {
+  items: { id: string; text: string }[];
 }
 
-const TodoList:React.FC<TodoListProps>=function(props){
-    return(
-        <ul>
-            {props.items.map(todo=>(
-                <li key={todo.id}>{todo.text}</li>
-            ))}
-        </ul>
-    )
-}
+const TodoList: React.FC<TodoListProps> = function (props) {
+  return (
+    <ul>
+      {props.items.map((todo) => (
+        <li key={todo.id}>{todo.text}</li>
+      ))}
+    </ul>
+  );
+};
 
-
-export default TodoList
+export default TodoList;

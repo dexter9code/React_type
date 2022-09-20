@@ -1,4 +1,5 @@
 import React from 'react'
+import NewTodo from './components/NewTodo';
 import TodoList from './components/TodoList';
 
 const TODO_DATA=[
@@ -9,8 +10,15 @@ const TODO_DATA=[
 
 
 const App: React.FC=()=>{
+  const newTodoList=(data:string)=>{
+    console.log(data)
+  }
+
   return (
+    <>
     <TodoList items={TODO_DATA}/>
+      <NewTodo getNewTodo={newTodoList}/>
+    </>
   )
 }
 
